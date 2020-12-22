@@ -2,13 +2,11 @@ package routes
 
 import (
 	"github.com/gorilla/mux"
-	"net/http"
+	"goframwork/app/http/controllers"
 )
 
 func MapWebRoutes(r *mux.Router) {
 
-	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("首页"))
-	})
+	a := new(controllers.IndexController)
+	r.HandleFunc("/", a.Index)
 }

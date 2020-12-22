@@ -29,12 +29,6 @@ func init() {
 	}
 
 	Viper.AutomaticEnv()
-	
-	
-	Viper.Set("app", map[string]interface{}{
-		"a":1,
-		"b":2,
-	});
 }
 
 func Get(Key string, defaultValue ...interface{}) interface{} {
@@ -46,4 +40,15 @@ func Get(Key string, defaultValue ...interface{}) interface{} {
 		return nil
 	}
 	return Viper.Get(Key)
+}
+
+func Add(key string, configMap map[string]interface{}) {
+	Viper.Set(key, configMap)
+}
+
+func Env(Key string, defaultValue ...interface{}) interface{} {
+	if len(defaultValue) > 0 {
+		return Get(Key, defaultValue[0])
+	}
+	return Get(Key)
 }
