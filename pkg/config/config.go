@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"github.com/spf13/cast"
 	"github.com/spf13/viper"
 )
 
@@ -40,6 +41,14 @@ func Get(Key string, defaultValue ...interface{}) interface{} {
 		return nil
 	}
 	return Viper.Get(Key)
+}
+
+func GetString(path string, defaultValue ...interface{}) string {
+	return cast.ToString(Get(path, defaultValue...))
+}
+
+func GetBool(path string, defaultValue ...interface{}) bool {
+	return cast.ToBool(Get(path, defaultValue...))
 }
 
 func Add(key string, configMap map[string]interface{}) {

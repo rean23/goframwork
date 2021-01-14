@@ -12,6 +12,7 @@ func init() {
 }
 func main() {
 	router := bootstrap.SetupRouter()
+	bootstrap.ConnectDB()
 
 	srv := &http.Server{
 		Handler: router,
