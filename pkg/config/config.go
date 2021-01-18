@@ -47,6 +47,10 @@ func GetString(path string, defaultValue ...interface{}) string {
 	return cast.ToString(Get(path, defaultValue...))
 }
 
+func GetInt(path string, defaultValue ...interface{}) int {
+	return cast.ToInt(Get(path, defaultValue...))
+}
+
 func GetBool(path string, defaultValue ...interface{}) bool {
 	return cast.ToBool(Get(path, defaultValue...))
 }

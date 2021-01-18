@@ -11,6 +11,10 @@ func init() {
 			"password": config.Env("DB_PASSWORD", "1"),
 			"database": config.Env("DB_DATABASE", "1"),
 			"charset":  config.Env("DB_CHARSET", "1"),
+
+			"max_open_connections": config.Env("DB_MAX_OPEN_CONNECTIONS", 100),
+			"max_idle_connections": config.Env("DB_MAX_IDLE_CONNECTIONS", 50),
+			"max_life_seconds":     config.Env("DB_MAX_LIFE_SECONDS", 5*60),
 		},
 	})
 }

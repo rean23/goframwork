@@ -3,6 +3,7 @@ package main
 import (
 	"goframwork/bootstrap"
 	"goframwork/config"
+	c"goframwork/pkg/config"
 	"net/http"
 	"time"
 )
@@ -16,7 +17,7 @@ func main() {
 
 	srv := &http.Server{
 		Handler: router,
-		Addr:    ":8000",
+		Addr:    ":" + c.GetString("app.port"),
 		// Good practice: enforce timeouts for servers you create!
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
